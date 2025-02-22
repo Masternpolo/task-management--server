@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors')
-const cookieParser = require('cookie-parser')
+// const cookieParser = require('cookie-parser')
 const port = 3000;
 require('dotenv').config();
 
@@ -186,8 +186,6 @@ app.get('/getUser', );
 //         console.log(tasks);
         
 //         res.status(200).json({message:'Tasks successfully retireved', tasks})
-//     })
-// })
 
 app.listen(port, () => {
     console.log(`App is listening on port ${port}`);

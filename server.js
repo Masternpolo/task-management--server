@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const { Client } = require('pg')
 
-const userRoutes = require('./routes/user.route')
+const userRoutes = require('./api/user.route')
 
 const cors = require('cors')
 const cookieParser = require('cookie-parser')

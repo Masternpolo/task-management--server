@@ -23,7 +23,7 @@ db.connect().then(() => console.log('connected to database'))
 
 
 
-app.use(cookieParser())
+// app.use(cookieParser())
 app.use(express.json())
 app.use(cors({
     origin: 'https://task-manager-steel-pi.vercel.app',

@@ -33,12 +33,12 @@ router.get('/login',loginValidationRules, controllers.login);
 
 router
     .route('/')
-    .get(auth.auth, auth.isAdmin, getAllUsers)
+    // .get(auth.auth, auth.isAdmin, getAllUsers)
     .post(controllers.signup);
 
     router
     .route('/:id')
     .get(auth.auth,controllers.getUser)
-    .patch(auth.auth, auth.isAdmin, updateUser)
-    .delete(auth.auth, auth.isAdmin, deleteUser);
+    // .patch(auth.auth, auth.isAdmin, updateUser)
+    // .delete(auth.auth, auth.isAdmin, deleteUser);
 

@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 
 
-const userRoutes = require('./api/v1/user.route')
+
+const userRoutes = require('../routes/user.route')
 
 const cors = require('cors')
 const cookieParser = require('cookie-parser')

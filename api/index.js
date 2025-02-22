@@ -1,14 +1,14 @@
 const express = require('express');
 const app = express();
-
-
-
-const userRoutes = require('../routes/user.route')
-
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const port = 3000;
 require('dotenv').config();
+
+
+const userRoutes = require('../routes/user.route')
+
+
 
 
 const db = new Client({

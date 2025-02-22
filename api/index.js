@@ -6,22 +6,7 @@ const port = 3000;
 require('dotenv').config();
 
 
-const userRoutes = require('../routes/user.route')
-
-
-
-
-const db = new Client({
-    host: 'localhost',
-    user: 'postgres',
-    port: 5432,
-    password: '230994',
-    database: 'Task_manager'
-});
-
-db.connect().then(() => console.log('connected to database'))
-
-
+const userRoutes = require('../routes/user.route');
 
 // app.use(cookieParser())
 app.use(express.json())

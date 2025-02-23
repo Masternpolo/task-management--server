@@ -42,3 +42,4 @@ router
     // .patch(auth.auth, auth.isAdmin, updateUser)
     // .delete(auth.auth, auth.isAdmin, deleteUser);
 
+module.exports = router;

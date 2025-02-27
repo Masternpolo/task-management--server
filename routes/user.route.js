@@ -25,7 +25,7 @@ const userValidationRules = () => [
   ];
 
 
-
+router.get('/', controllers.home)
 router.post('/signup', userValidationRules, controllers.signup);
 router.get('/login',loginValidationRules, controllers.login);
 

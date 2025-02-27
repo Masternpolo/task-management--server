@@ -87,6 +87,11 @@ exports.login = async (req, res) => {
     }
 
 }
+
 exports.getUser = (req, res) => {
     res.json({ user: req.user })
+}
+
+exports.home = (req, res) => {
+    res.json({ status: 'success', message: "Welcome to task manager" })
 }

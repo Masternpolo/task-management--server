@@ -4,7 +4,7 @@ const db = require('../database/db')
 //creating a user
 exports.createUser = async (username, password, email) => {
     const hashedPassword = await bcrypt.hash(password, 10);
-    const sql = `INSERT INTO users(username, password, email) VALUES (?, ?, ?)`;
+    const sql = `INSERT INTO users(username, password, email) VALUES ($1, $2, $3)`;
     //adding user details to database
     return new Promise((resolve, reject) => {
         db.query(sql, [username, hashedPassword, email], (err, result) => {
@@ -17,14 +17,14 @@ exports.createUser = async (username, password, email) => {
 }
 
 exports.loginUser =  (username, password,) => {
-    const sql = `SELECT * users WHERE username =?`;
+    const sql = `SELECT * users WHERE username = $1`;
     //adding user details to database
     return new Promise((resolve, reject) => {
         db.query(sql, [username], async(err, result) => {
             if (err) {
                 reject(err);
             } else {
-                const user = result[0];
+                const user = result.rows[0];
                 if (user && await bcrypt.compare(password, user.password)) {
                     resolve(user)
                 } else {
@@ -45,7 +45,7 @@ exports.usernameExists = async (username) => {
             if (err) {
                 reject(err)
             }
-            resolve(result.length > 0)
+            resolve(result.rows.length > 0)
         })
     })
 }
@@ -59,7 +59,7 @@ exports.emailExists =  (email) => {
             if (err) {
                 reject(err)
             }
-            resolve(result.length > 0, result)
+            resolve(result.rows.length > 0, result)
         })
     })
 }

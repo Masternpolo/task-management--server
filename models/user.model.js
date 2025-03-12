@@ -52,7 +52,7 @@ exports.usernameExists = async (username) => {
 
 //checking if email exists
 exports.emailExists =  (email) => {
-    const sql = `SELECT 1 FROM users WHERE usaername = ? `;
+    const sql = `SELECT 1 FROM users WHERE email = ? `;
     //adding user details to database
     return new Promise((resolve, reject) => {
         db.query(sql, [email], (err, result) => {

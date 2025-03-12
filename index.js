@@ -4,6 +4,9 @@ const cors = require('cors')
 // const cookieParser = require('cookie-parser')
 const port = 3000;
 require('dotenv').config();
+const AppError = require('./utils/AppError')
+const globalErrorHandler = require('./controllers/errorController')
+
 
 
 const userRoutes = require('./routes/user.route');
@@ -19,15 +22,17 @@ app.use(cors({
 
 
 app.use(express.urlencoded({ extended: true }));
-app.use('/api/v1', userRoutes);
+app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/tasks', taskRoutes);
 
+app.all('*', (req, res, next)=>{
+    next(new AppError(`Can't find ${req.originalUrl} on the server`, 404));
+});
 
-
-
-
+app.use(globalErrorHandler);
 
 
 app.listen(port, () => {
     console.log(`App is listening on port ${port}`);
-})
+});
 

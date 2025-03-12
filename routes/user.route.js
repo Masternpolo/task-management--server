@@ -31,15 +31,15 @@ router.get('/login',loginValidationRules, controllers.login);
 
 
 
-// router
-//     .route('/')
-//     // .get(auth.auth, auth.isAdmin, getAllUsers)
-//     // .post(controllers.signup);
+router
+    .route('/')
+    .get(auth.auth, auth.isAdmin, getAllUsers)
+    .post(userValidationRules, controllers.signup);
 
-//     router
-//     .route('/:id')
-    // .get(auth.auth,controllers.getUser)
-    // .patch(auth.auth, auth.isAdmin, updateUser)
-    // .delete(auth.auth, auth.isAdmin, deleteUser);
+    router
+    .route('/:id')
+    .get(auth.auth,controllers.getUser)
+    .patch(auth.auth, auth.isAdmin, updateUser)
+    .delete(auth.auth, auth.isAdmin, deleteUser);
 
 module.exports = router;
